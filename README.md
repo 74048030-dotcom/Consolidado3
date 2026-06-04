@@ -1,4 +1,12 @@
-Consolidado 3
-Integrantes 
-CRISTIAN JOSUE MULLISACA GUZMAN
-FRANK ABEL CHAMBI CONDORI
+# 📘 Consolidado 3
+
+## 👥 Integrantes del Equipo
+
+| N.° | Apellidos y Nombres |
+|---:|---|
+| 1 | **CRISTIAN JOSUE MULLISACA GUZMAN** |
+| 2 | **FRANK ABEL CHAMBI CONDORI** |
+
+---
+
+> **Trabajo grupal correspondiente al Consolidado 3.**
