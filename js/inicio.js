@@ -6,11 +6,11 @@ const contenedor = document.getElementById("destacados");
 // ahí se van a insertar los productos
 
 // Función para dar formato al precio
-function formatearPrecio(precio) {
-    return `S/ ${precio.toFixed(2)}`;
-// Convierte el número a formato moneda peruana
-// Ejemplo: 10 → "S/ 10.00"
-}
+const formatearPrecio = precio =>
+    new Intl.NumberFormat("es-PE", {
+        style: "currency",
+        currency: "PEN"
+    }).format(precio);
 
 // PRODUCTOS es un array (probablemente en otro archivo)
 // slice(0, 4) = toma solo los primeros 4 productos

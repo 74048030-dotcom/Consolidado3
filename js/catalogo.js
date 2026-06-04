@@ -10,10 +10,11 @@ if (grid && inputBuscar && selectCategoria && conteo) {
   /* Copia de productos para poder filtrarlos sin modificar el original */
   let productosFiltrados = [...PRODUCTOS];
 
-  /* Formatea precio a moneda */
-  function formatearPrecio(precio) {
-    return `S/ ${precio.toFixed(2)}`;
-  }
+const formatearPrecio = precio =>
+    new Intl.NumberFormat("es-PE", {
+        style: "currency",
+        currency: "PEN"
+    }).format(precio);
 
   /* Renderiza productos en pantalla */
   function renderProductos(lista) {

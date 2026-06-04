@@ -7,7 +7,6 @@
 | 1 | **CRISTIAN JOSUE MULLISACA GUZMAN** |
 | 2 | **FRANK ABEL CHAMBI CONDORI** |
 | 3 | **GONZALO ANDY MALLMA CASTILLO** |
-buenas 7
 ---
 
 > **Trabajo grupal correspondiente al Consolidado 3.**
