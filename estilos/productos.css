@@ -1,0 +1,161 @@
+/*--- PRODUCTOS ---*/
+/* Grid principal donde se muestran todos los productos */
+.grid-productos{
+    display:grid; /* usa grid layout */
+    grid-template-columns:repeat(4, 1fr); 
+    /* 4 columnas iguales en desktop */
+
+    gap:30px; /* espacio entre tarjetas */
+    margin-top:40px;
+}
+
+/* Tarjeta de producto */
+.tarjeta{
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden; /* evita que contenido se salga */
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+    transition:all .3s ease;
+
+    display:flex;
+    flex-direction:column; /* organiza contenido vertical */
+    height:100%;
+}
+
+/* Efecto hover de la tarjeta */
+.tarjeta:hover{
+    transform:translateY(-8px); /* levanta la tarjeta */
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
+}
+
+/* Imagen del producto */
+.tarjeta-img{
+    width:100%;
+    height:250px;
+    object-fit:cover; /* evita deformación */
+
+    transition:transform .4s ease;
+}
+
+/* Zoom de imagen al hover */
+.tarjeta:hover .tarjeta-img{
+    transform:scale(1.05);
+}
+
+/* Cuerpo de la tarjeta (info) */
+.tarjeta-cuerpo{
+    padding:20px;
+
+    display:flex;
+    flex-direction:column;
+    flex:1; /* ocupa espacio disponible */
+}
+
+/* Etiqueta de categoría */
+.tarjeta-categoria{
+    display:inline-block;
+
+    background:#e8f5e9;
+    color:#2e7d32;
+
+    padding:5px 12px;
+    border-radius:20px;
+
+    font-size:.8rem;
+    font-weight:600;
+
+    margin-bottom:12px;
+}
+
+/* Nombre del producto */
+.tarjeta-nombre{
+    font-size:1.1rem;
+    margin-bottom:10px;
+    color:#333;
+
+    min-height:55px; /* mantiene altura uniforme */
+}
+
+/* Precio del producto */
+.tarjeta-precio{
+    color:#2e7d32;
+    font-size:1.4rem;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+/* Contenedor de botones */
+.tarjeta-acciones{
+    display:flex;
+    gap:10px;
+
+    margin-top:auto; /* empuja botones abajo */
+}
+
+/* Botones generales */
+.btn-detalle,
+.btn-agregar{
+    flex:1; /* ocupan el mismo espacio */
+
+    padding:12px;
+    border:none;
+    border-radius:10px;
+
+    font-weight:600;
+    cursor:pointer;
+
+    transition:.3s;
+    text-align:center;
+}
+
+/* Botón ver detalle */
+.btn-detalle{
+    background:#fff;
+    border:2px solid #2e7d32;
+    color:#2e7d32;
+}
+
+/* Hover botón detalle */
+.btn-detalle:hover{
+    background:#2e7d32;
+    color:#fff;
+}
+
+/* Botón agregar al carrito */
+.btn-agregar{
+    background:#2e7d32;
+    color:#fff;
+}
+
+/* Hover botón agregar */
+.btn-agregar:hover{
+    background:#1b5e20;
+}
+
+/*----- RESPONSIVE -----*/
+
+/* TABLETS */
+@media(max-width:992px){
+
+    .grid-productos{
+        grid-template-columns:repeat(2,1fr); /* 2 columnas */
+    }
+}
+
+/* CELULARES */
+@media(max-width:576px){
+
+    .grid-productos{
+        grid-template-columns:1fr; /* 1 columna */
+    }
+
+    .tarjeta-acciones{
+        flex-direction:column; /* botones en vertical */
+    }
+
+    .tarjeta-img{
+        height:220px;
+    }
+}

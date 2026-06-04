@@ -1,0 +1,308 @@
+/*----Navegacion----*/
+/* Estilos de la barra de navegación superior */
+.navbar{
+  width:100%;               /* Ocupa todo el ancho de la pantalla */
+  height:80px;              /* Altura inicial del navbar */
+
+  display:flex;             /* Activa flexbox para organizar elementos */
+  justify-content:space-between; /* Separa elementos a los extremos */
+  align-items:center;       /* Centra verticalmente */
+
+  padding:0 3rem;           /* Espacio interno izquierda y derecha */
+
+  position:fixed;           /* Navbar fija en pantalla */
+  top:0;
+  left:0;
+  z-index:1000;             /* Se asegura de estar encima de todo */
+
+  background:rgba(46,125,50,.95); /* Verde con transparencia */
+  backdrop-filter:blur(10px);     /* Efecto de desenfoque tipo “glass” */
+
+  box-shadow:0 5px 20px rgba(0,0,0,.15); /* Sombra para profundidad */
+
+  transition:all .3s ease; /* Animación suave para cambios */
+}
+
+/* Para efecto al hacer scroll */
+/* Clase que se activa cuando el usuario baja */
+.navbar.scrolled{
+  height:70px;        /* Se hace más pequeño */
+  background:#1b5e20; /* Verde más oscuro */
+}
+
+/*---- MARCA ----*/
+/* Logo + nombre del sitio */
+.marca{
+  display:flex;
+  align-items:center;
+  gap:.8rem;            /* Espacio entre logo y texto */
+  text-decoration:none; /* Quita subrayado */
+}
+
+.marca-logo{
+  width:50px;
+  height:50px;
+  transition:.4s ease;  /* Animación suave */
+}
+
+/* Animación cuando pasas el mouse sobre la marca */
+.marca:hover .marca-logo{
+  transform:rotate(-8deg) scale(1.1); /* Gira y crece */
+}
+
+.marca-nombre{
+  color:white;
+  font-size:1.6rem;
+  font-weight:700;
+}
+
+.marca-nombre span{
+  color:#c8e6c9; /* Parte del nombre con color diferente */
+}
+
+/*---- LINKS ----*/
+/* Lista de navegación */
+.nav-links{
+  display:flex;
+  gap:2rem;          /* Espacio entre links */
+  list-style:none;   /* Quita viñetas */
+}
+
+.nav-links a{
+  position:relative; /* Necesario para la línea animada */
+
+  color:white;
+  font-size:1rem;
+  font-weight:500;
+
+  transition:.3s;
+}
+
+/* Hover de los links */
+.nav-links a:hover{
+  color:#dcedc8; /* Cambia color al pasar mouse */
+}
+
+/* Línea animada debajo del link */
+.nav-links a::after{
+  content:'';
+  position:absolute;
+
+  left:0;
+  bottom:-6px;
+
+  width:0;       /* Empieza invisible */
+  height:3px;
+
+  background:#c8e6c9;
+  border-radius:10px;
+
+  transition:.3s;
+}
+
+/* Al hacer hover se expande la línea */
+.nav-links a:hover::after{
+  width:100%;
+}
+
+/* Contenedor de acciones (carrito, botones, etc.) */
+.acciones-nav{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+}
+
+/*---- CARRITO ----*/
+/* Estilo del contenedor del carrito */
+.nav-carrito{
+  list-style:none;
+  background-color:#dbfadd;
+  padding:5px;
+  border-radius:5px;
+  margin:0;
+}
+
+/* Icono del carrito */
+.carrito-icono{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.carrito-icono img{
+  width:32px;
+  transition:.3s ease;
+}
+
+/* Efecto hover del carrito */
+.carrito-icono:hover img{
+  transform:scale(1.15);
+}
+
+/* Contador de productos en el carrito */
+.carrito-icono-contador{
+  position:absolute;
+  top:-8px;
+  right:-10px;
+
+  min-width:22px;
+  height:22px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:#ef4444;
+  color:white;
+
+  font-size:.75rem;
+  font-weight:bold;
+
+  border-radius:50%;
+  border:2px solid white;
+
+  opacity:0;           /* Oculto por defecto */
+  transform:scale(0.8);
+  transition:.2s;
+}
+
+/* Cuando hay productos, se muestra */
+.carrito-icono-contador.show{
+  opacity:1;
+  transform:scale(1);
+}
+
+/*---- HAMBURGER ----*/
+/* Botón menú móvil */
+.hamburger{
+  display:none;     /* Oculto en desktop */
+  background:none;
+  border:none;
+  cursor:pointer;
+}
+
+/* Líneas del icono hamburguesa */
+.hb-top,
+.hb-middle,
+.hb-bottom{
+  stroke:white;
+  stroke-width:2.5;
+  stroke-linecap:round;
+  transition:all .3s ease;
+  transform-origin:center;
+}
+
+/* Animación cuando está activo (se convierte en X) */
+.hamburger.active .hb-top{
+  transform:translateY(6px) rotate(45deg);
+}
+
+.hamburger.active .hb-middle{
+  opacity:0;
+}
+
+.hamburger.active .hb-bottom{
+  transform:translateY(-6px) rotate(-45deg);
+}
+
+/*---- RESPONSIVE ----*/
+/* Diseño para pantallas pequeñas */
+@media(max-width:768px){
+
+  .navbar{
+    padding:0 1.5rem; /* menos espacio en móviles */
+  }
+
+  .hamburger{
+    display:block; /* aparece el menú hamburguesa */
+  }
+
+  .nav-links{
+    position:absolute;
+    top:80px;
+    left:0;
+
+    width:100%;
+    background:#2e7d32;
+
+    flex-direction:column; /* links en columna */
+
+    align-items:center;
+
+    max-height:0;      /* oculto por defecto */
+    overflow:hidden;
+
+    transition:max-height .4s ease;
+  }
+
+  .nav-links.active{
+    max-height:300px; /* se despliega menú */
+  }
+
+  .nav-links li{
+    padding:1rem 0;
+  }
+}
+
+/*---- FOOTER ----*/
+/* Pie de página */
+.pie{
+  background:#1f3a24;
+  color:white;
+  padding:3rem 0 1rem;
+}
+
+.pie-contenido{
+  width:90%;
+  max-width:1200px;
+  margin:auto;
+
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:2rem;
+}
+
+.pie h4{
+  margin-bottom:1rem;
+}
+
+.pie ul{
+  list-style:none;
+}
+
+.pie li{
+  margin-bottom:.5rem;
+}
+
+.pie a{
+  color:white;
+}
+
+.pie-copy{
+  text-align:center;
+  margin-top:2rem;
+  opacity:.8;
+}
+
+/*---- RESPONSIVE EXTRA (HERO) ----*/
+/* Ajustes para sección principal en móvil */
+@media(max-width:768px){
+
+  .hero-contenido{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .hero-texto h1{
+    font-size:2.5rem;
+  }
+
+  .hero-botones{
+    justify-content:center;
+  }
+
+  .hero-hoja{
+    width:260px;
+  }
+}

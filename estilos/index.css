@@ -1,0 +1,148 @@
+/*----HERO-----*/
+/* Sección principal de bienvenida (primera pantalla que ve el usuario) */
+.hero{
+    min-height:85vh; /* Ocupa casi toda la pantalla */
+    display:flex;    /* Usa flex para centrar contenido */
+    align-items:center; /* Centra verticalmente */
+
+    /* Fondo con degradado verde suave */
+    background:linear-gradient(135deg,#e8f5e9,#c8e6c9);
+
+    overflow:hidden; /* Evita que elementos animados se salgan */
+    padding-top:80px; /* Espacio por el navbar fijo */
+}   
+
+/* Contenedor del hero */
+.hero-contenido{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+
+    display:grid; /* Usa grid para dividir en 2 columnas */
+    grid-template-columns:1fr 1fr; /* Texto | Imagen */
+
+    align-items:center;
+    gap:50px; /* Espacio entre columnas */
+}
+
+/* Título principal */
+.hero-texto h1{
+    font-size:3.5rem; /* Tamaño grande tipo landing page */
+    color:var(--verde-principal);
+    margin-bottom:20px;
+}
+
+/* Párrafo del hero */
+.hero-texto p{
+    font-size:1.2rem;
+    margin-bottom:30px;
+}
+
+/* Botón del catálogo */
+.btn-catalogo{
+    display:inline-block;
+    padding:15px 30px;
+
+    background:var(--verde-principal);
+    color:white;
+
+    border-radius:50px; /* Botón redondeado tipo moderno */
+    font-weight:bold;
+
+    transition:.3s;
+}
+
+/* Hover del botón */
+.btn-catalogo:hover{
+    background:var(--verde-claro); /* cambia a verde claro */
+    transform:translateY(-3px);    /* efecto de “subir” */
+}
+
+/* Contenedor de la imagen */
+.hero-imagen{
+    display:flex;
+    justify-content:center;
+}
+
+/* Imagen principal (hoja animada) */
+.hero-hoja{
+    width:320px;
+
+    /* Animación flotante infinita */
+    animation:flotar 4s ease-in-out infinite;
+}
+
+/* Animación de flotación */
+@keyframes flotar{
+    0%,100%{
+        transform:translateY(0); /* posición normal */
+    }
+    50%{
+        transform:translateY(-20px); /* sube un poco */
+    }
+}
+
+/* ===== VALORES ===== */
+/* Sección de beneficios o características del e-commerce */
+.valores{
+    display:grid; /* grid para tarjetas */
+    grid-template-columns:repeat(3,1fr); /* 3 columnas */
+    gap:30px;
+}
+
+/* Cada tarjeta de valor */
+.valor{
+    background:white;
+    padding:35px;
+    text-align:center;
+
+    border-radius:20px;
+    box-shadow:var(--sombra); /* sombra global */
+
+    transition:.3s;
+}
+
+/* Efecto hover de cada tarjeta */
+.valor:hover{
+    transform:translateY(-8px); /* sube ligeramente */
+}
+
+/* Icono dentro de cada tarjeta */
+.valor-icono{
+    width:70px;
+    height:70px;
+    margin:auto;
+    margin-bottom:20px;
+}
+
+/* Título de cada valor */
+.valor h3{
+    color:var(--verde-principal);
+    margin-bottom:10px;
+}
+
+/* ===== RESPONSIVE ===== */
+/* Adaptación para móviles */
+@media(max-width:768px){
+
+    .hero-contenido{
+        grid-template-columns:1fr; /* pasa a una sola columna */
+        text-align:center;
+    }
+
+    .hero-texto h1{
+        font-size:2.5rem; /* reduce tamaño del título */
+    }
+
+    .hero-hoja{
+        width:220px; /* reduce imagen */
+    }
+
+    .valores{
+        grid-template-columns:1fr; /* tarjetas en columna */
+    }
+
+    .seccion-titulo{
+        font-size:2rem;
+    }
+}

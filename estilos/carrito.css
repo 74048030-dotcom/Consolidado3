@@ -1,0 +1,214 @@
+/*---- Carrito-Productos ----*/
+/* Layout general del carrito (productos + resumen) */
+.carrito-layout{
+    display:grid; /* usa grid */
+    grid-template-columns:2fr 1fr; /* productos 2 partes, resumen 1 parte */
+    gap:2rem;
+    align-items:start;
+}
+
+/* Lista de productos del carrito */
+.carrito-productos{
+    display:flex;
+    flex-direction:column; /* uno debajo del otro */
+    gap:1rem;
+}
+
+/* Cada producto del carrito */
+.carrito-item{
+    background:white;
+    border-radius:16px;
+    padding:1rem;
+
+    display:grid;
+    grid-template-columns:100px 1fr auto auto auto; 
+    /* imagen | info | cantidad | subtotal | eliminar */
+
+    gap:1rem;
+    align-items:center;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08); /* sombra tipo tarjeta */
+}
+
+/* Imagen del producto */
+.carrito-img{
+    width:100px;
+    height:100px;
+    object-fit:cover; /* recorta sin deformar */
+    border-radius:12px;
+}
+
+/* Información del producto */
+.carrito-info h3{
+    font-size:1.1rem;
+    margin-bottom:.3rem;
+}
+
+.carrito-info p{
+    color:var(--verde-principal);
+    font-weight:bold;
+}
+
+/* Controles de cantidad (+ y -) */
+.carrito-cantidad{
+    display:flex;
+    align-items:center;
+    gap:.6rem;
+}
+
+/* Botones de cantidad */
+.carrito-cantidad button{
+    width:35px;
+    height:35px;
+
+    border:none;
+    border-radius:8px;
+
+    background:var(--verde-claro);
+    color:var(--verde-principal);
+
+    font-size:1.1rem;
+    font-weight:bold;
+
+    cursor:pointer;
+}
+
+/* Hover botones cantidad */
+.carrito-cantidad button:hover{
+    background:#d7eed8;
+}
+
+/* Subtotal del producto */
+.carrito-subtotal{
+    font-weight:bold;
+    color:var(--verde-principal);
+}
+
+/* Botón eliminar producto */
+.btn-eliminar{
+    border:none;
+    background:#ffebee;
+    color:#c62828;
+
+    padding:.7rem 1rem;
+    border-radius:10px;
+
+    cursor:pointer;
+}
+
+/* Hover eliminar */
+.btn-eliminar:hover{
+    background:#ffcdd2;
+}
+
+/*---- RESUMEN ----*/
+/* Panel lateral con total y compra */
+.carrito-resumen{
+    background:white;
+    padding:1.5rem;
+    border-radius:16px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    position:sticky; /* se queda fijo al hacer scroll */
+    top:100px;
+}
+
+/* Título del resumen */
+.carrito-resumen h2{
+    margin-bottom:1rem;
+    color:var(--verde-principal);
+}
+
+/* Filas de resumen (subtotal, total, etc.) */
+.carrito-resumen p{
+    display:flex;
+    justify-content:space-between; /* separa texto y valor */
+    margin-bottom:1rem;
+}
+
+/* Botón comprar */
+.btn-comprar{
+    width:100%;
+    border:none;
+
+    background:var(--verde-principal);
+    color:white;
+
+    padding:14px;
+    border-radius:10px;
+
+    font-weight:600;
+    cursor:pointer;
+
+    margin-top:1rem;
+}
+
+/* Hover comprar */
+.btn-comprar:hover{
+    background:#1b5e20;
+}
+
+/* Botón vaciar carrito */
+#vaciar-carrito{
+    width:100%;
+    border:none;
+
+    background:#f3f4f6;
+    color:#333;
+
+    padding:14px;
+    border-radius:10px;
+
+    font-weight:600;
+    cursor:pointer;
+
+    margin-top:.8rem;
+}
+
+/* Hover vaciar */
+#vaciar-carrito:hover{
+    background:#e5e7eb;
+}
+
+/*---- CARRITO VACÍO ----*/
+/* Cuando no hay productos */
+.carrito-vacio{
+    background:white;
+    padding:3rem;
+    text-align:center;
+
+    border-radius:16px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.carrito-vacio h2{
+    color:var(--verde-principal);
+    margin-bottom:.5rem;
+}
+
+/*---- RESPONSIVE ----*/
+/* Adaptación a móviles */
+@media(max-width:900px){
+
+    .carrito-layout{
+        grid-template-columns:1fr; /* todo en una columna */
+    }
+
+    .carrito-item{
+        grid-template-columns:1fr; /* tarjeta vertical */
+        text-align:center;
+    }
+
+    .carrito-img{
+        margin:auto;
+    }
+
+    .carrito-cantidad{
+        justify-content:center;
+    }
+
+    .carrito-resumen{
+        position:static; /* deja de ser sticky en móvil */
+    }
+}

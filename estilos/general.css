@@ -1,0 +1,57 @@
+/*-----VARIABLES ----*/ 
+/* Aquí se definen variables globales CSS (colores y sombras reutilizables) */
+:root{
+    --verde-principal:#2e7d32;   /* Verde principal del diseño */
+    --verde-secundario:#4caf50;  /* Verde secundario */
+    --verde-claro:#e8f5e9;       /* Verde muy claro para fondos suaves */
+    --texto:#333;                /* Color principal del texto (gris oscuro) */
+    --blanco:#fff;               /* Color blanco */
+    --sombra:0 8px 20px rgba(0,0,0,.1); /* Sombra suave para tarjetas o cajas */
+}
+
+
+/*------GENERAL-----*/
+/* Reset general: elimina estilos por defecto del navegador */
+*{
+    margin:0;              /* Quita márgenes por defecto */
+    padding:0;             /* Quita padding por defecto */
+    box-sizing:border-box; /* Hace que el padding y border no aumenten el tamaño del elemento */
+}
+
+body{
+    font-family:'Segoe UI',sans-serif; /* Fuente principal del sitio */
+    background:var(--verde-claro);      /* Color de fondo usando variable */
+    color:var(--texto);                 /* Color del texto principal */
+    line-height:1.6;                    /* Espaciado entre líneas para mejor lectura */
+}
+
+a{
+    text-decoration:none; /* Quita el subrayado de los enlaces */
+}
+
+img{
+    max-width:100%;  /* Evita que las imágenes se salgan del contenedor */
+    display:block;   /* Elimina espacios extra debajo de imágenes */
+}
+
+.contenedor{
+    width:90%;          /* Ocupa el 90% del ancho de la pantalla */
+    max-width:1200px;   /* Pero no crece más de 1200px */
+    margin:auto;        /* Centra el contenedor horizontalmente */
+}
+
+.seccion{
+    padding:80px 0; /* Espaciado arriba y abajo de cada sección */
+}
+
+.seccion-titulo{
+    text-align:center;        /* Centra el título */
+    font-size:2.3rem;         /* Tamaño grande del título */
+    color:var(--verde-principal); /* Color verde principal */
+}
+
+.seccion-texto{
+    text-align:center; /* Centra el texto descriptivo */
+    margin-bottom:3rem; /* Espacio debajo del texto */
+    color:#666;        /* Gris medio para texto secundario */
+}

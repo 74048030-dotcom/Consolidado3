@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56" role="img" aria-label="Logo Raíz Verde">
+  <circle cx="28" cy="28" r="26" fill="#2f7d4f"/>
+  <path d="M28 44c0-8-6-13-12-15 6-1 12 1 12 8 0-9 6-13 12-15-6 7-12 6-12 22z" fill="#cdeccd"/>
+  <path d="M28 40c0-6 4-10 9-12-3 5-7 6-7 14z" fill="#a7d8a0"/>
+  <rect x="25" y="40" width="6" height="10" rx="2" fill="#8a5a3b"/>
+</svg>

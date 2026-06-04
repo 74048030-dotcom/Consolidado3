@@ -1,0 +1,162 @@
+/*---- TARJETA PAGOS ---*/
+/* Contenedor principal del formulario de pago */
+.form-card{
+    max-width:800px;   /* limita el ancho para que no sea muy grande */
+    margin:0 auto;     /* centra en pantalla */
+
+    background:white;
+    padding:2rem;
+    border-radius:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08); /* efecto tarjeta */
+}
+
+/*---- CAMPOS ---*/
+/* Cada campo del formulario */
+.campo{
+    display:flex;
+    flex-direction:column; /* label arriba, input abajo */
+    margin-bottom:1.3rem;
+}
+
+/* Etiqueta del campo */
+.campo label{
+    font-weight:600;
+    color:var(--verde-principal);
+    margin-bottom:.5rem;
+}
+
+/* Inputs y textarea */
+.campo input,
+.campo textarea{
+    width:100%;
+
+    padding:14px 16px;
+
+    border:2px solid #e5e7eb;
+    border-radius:12px;
+
+    font-size:1rem;
+    font-family:inherit;
+
+    background:white;
+    outline:none;
+
+    transition:all .25s ease;
+}
+
+/* Textarea más grande y redimensionable */
+.campo textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+/* Efecto cuando el usuario hace focus */
+.campo input:focus,
+.campo textarea:focus{
+    border-color:var(--verde-secundario);
+    box-shadow:0 0 0 4px rgba(76,175,80,.15);
+}
+
+/*---- MENSAJES DE ERROR ---*/
+/* Texto de error debajo de cada campo */
+.campo-error{
+    display:block;
+    min-height:20px;
+
+    margin-top:6px;
+
+    color:#dc2626;
+    font-size:.85rem;
+    font-weight:500;
+}
+
+/*---- ESTADOS DE VALIDACIÓN ---*/
+/* Campo con error */
+input.error,
+textarea.error{
+    border-color:#dc2626;
+    background:#fef2f2;
+}
+
+/* Campo correcto */
+input.correcto,
+textarea.correcto{
+    border-color:#16a34a;
+    background:#f0fdf4;
+}
+
+/*---- MENSAJES GENERALES ---*/
+/* Mensaje global de error */
+.aviso-error{
+    background:#fee2e2;
+    color:#991b1b;
+
+    padding:1rem;
+    margin-bottom:1.5rem;
+
+    border-radius:12px;
+    border-left:5px solid #dc2626;
+
+    font-weight:600;
+}
+
+/* Mensaje de éxito */
+.aviso-exito{
+    background:#dcfce7;
+    color:#166534;
+
+    padding:1rem;
+    margin-bottom:1.5rem;
+
+    border-radius:12px;
+    border-left:5px solid #16a34a;
+
+    font-weight:600;
+}
+
+/*---- BOTÓN CONFIRMAR ---*/
+/* Botón final de pago */
+.btn-confirmar{
+    width:100%;
+
+    border:none;
+
+    background:var(--verde-principal);
+    color:white;
+
+    padding:16px;
+
+    border-radius:12px;
+
+    font-size:1rem;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s ease;
+}
+
+/* Hover del botón */
+.btn-confirmar:hover{
+    background:#1b5e20;
+    transform:translateY(-2px);
+}
+
+/* Click del botón */
+.btn-confirmar:active{
+    transform:translateY(0);
+}
+
+/*---- RESPONSIVE ---*/
+/* Adaptación móvil */
+@media(max-width:768px){
+
+    .form-card{
+        padding:1.5rem;
+    }
+
+    .seccion-titulo{
+        font-size:2rem;
+    }
+}

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Define codificación de caracteres -->
+    <meta charset="UTF-8">
+
+    <!-- Hace la página responsive en móviles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Archivos CSS del proyecto -->
+    <link rel="stylesheet" href="estilos/menu.css">
+    <link rel="stylesheet" href="estilos/general.css">
+    <link rel="stylesheet" href="estilos/pagos.css">
+
+    <!-- Título de la pestaña del navegador -->
+    <title>Inicio Raiz Verde</title>
+</head>
+
+<body>
+
+    <!-- ================= HEADER / NAVEGACIÓN ================= -->
+    <header>
+
+        <nav class="navbar">
+
+            <!-- LOGO + NOMBRE DEL SITIO -->
+            <a class="marca" href="index.html">
+                <img class="marca-logo" src="img/logo.svg" alt="Logo de Raíz Verde">
+
+                <span class="marca-nombre">
+                    Raíz<span>Verde</span>
+                </span>
+            </a>
+
+            <!-- CONTENEDOR DE ACCIONES DEL NAV -->
+            <div class="acciones-nav">
+
+                <!-- MENÚ DE NAVEGACIÓN -->
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="catalogo.html">Catalogo</a></li>
+                </ul>
+
+                <!-- BOTÓN HAMBURGUESA (MÓVIL) -->
+                <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+
+                    <svg viewBox="0 0 24 24" width="26" height="26" fill="none">
+
+                        <!-- líneas del icono hamburguesa -->
+                        <line class="hb-top" x1="1" y1="6" x2="18" y2="6" />
+                        <line class="hb-middle" x1="1" y1="12" x2="18" y2="12" />
+                        <line class="hb-bottom" x1="1" y1="18" x2="18" y2="18" />
+
+                    </svg>
+                </button>
+
+                <!-- ICONO DEL CARRITO -->
+                <ul class="nav-carrito">
+                    <li>
+                        <a class="carrito-icono activo" href="carrito.html" aria-label="Ver carrito">
+
+                            <img src="img/carrito.svg" alt="carrito">
+
+                            <!-- contador dinámico del carrito -->
+                            <span class="carrito-icono-contador" id="contador-carrito">0</span>
+
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+
+    <!-- ================= CONTENIDO PRINCIPAL ================= -->
+    <main class="seccion contenedor">
+
+        <!-- TÍTULO DE LA PÁGINA -->
+        <h1 class="seccion-titulo">Finaliza tu pedido</h1>
+
+        <!-- DESCRIPCIÓN -->
+        <p class="seccion-texto">
+            Completa tus datos y nos pondremos en contacto para coordinar la entrega
+        </p>
+
+        <!-- CARD DEL FORMULARIO -->
+        <div class="form-card">
+
+            <!-- mensajes de error o éxito dinámicos -->
+            <div id="aviso"></div>
+
+            <!-- FORMULARIO DE CHECKOUT -->
+            <!-- novalidate desactiva validación del navegador para usar JS -->
+            <form id="form-checkout" novalidate>
+
+                <!-- NOMBRE -->
+                <div class="campo">
+                    <label for="nombre">Nombre completo *</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ej. Ana Pérez">
+                    <span class="campo-error"></span>
+                </div>
+
+                <!-- EMAIL -->
+                <div class="campo">
+                    <label for="email">Correo electrónico *</label>
+                    <input type="email" id="email" name="email" placeholder="nombre@correo.com">
+                    <span class="campo-error"></span>
+                </div>
+
+                <!-- TELÉFONO -->
+                <div class="campo">
+                    <label for="telefono">Teléfono (9 dígitos) *</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="987654321">
+                    <span class="campo-error"></span>
+                </div>
+
+                <!-- DIRECCIÓN -->
+                <div class="campo">
+                    <label for="direccion">Dirección de entrega *</label>
+                    <input type="text" id="direccion" name="direccion" placeholder="Av. Siempre Viva 123, Lima">
+                    <span class="campo-error"></span>
+                </div>
+
+                <!-- FECHA -->
+                <div class="campo">
+                    <label for="fecha">Fecha de entrega deseada *</label>
+                    <input type="date" id="fecha" name="fecha">
+                    <span class="campo-error"></span>
+                </div>
+
+                <!-- NOTAS OPCIONALES -->
+                <div class="campo">
+                    <label for="notas">Notas para el repartidor (opcional)</label>
+                    <textarea id="notas" name="notas"
+                        placeholder="Referencias, horario preferido…"></textarea>
+                    <span class="campo-error"></span>
+                </div>
+
+                <!-- BOTÓN FINAL -->
+                <button type="submit" class="btn-confirmar">
+                    Confirmar pedido
+                </button>
+
+            </form>
+        </div>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="pie">
+
+        <div class="pie-contenido">
+
+            <!-- INFO DE LA TIENDA -->
+            <div>
+                <h4>Raíz Verde</h4>
+                <p>
+                    Vivero urbano dedicado a acercar la naturaleza a tu hogar.
+                    Plantas, macetas y todo lo que necesitas para empezar.
+                </p>
+            </div>
+
+            <!-- LINKS -->
+            <div>
+                <h4>Tienda</h4>
+                <ul>
+                    <li><a href="catalogo.html">Catálogo</a></li>
+                    <li><a href="carrito.html">Carrito</a></li>
+                </ul>
+            </div>
+
+            <!-- CONTACTO -->
+            <div>
+                <h4>Contacto</h4>
+                <ul>
+                    <li>Lima, Perú</li>
+                    <li>hola@raizverde.pe</li>
+                    <li>(01) 555-0123</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- COPYRIGHT -->
+        <p class="pie-copy">
+            © 2026 Raíz Verde · Proyecto académico · Diseño Web NRC 33061
+        </p>
+
+    </footer>
+
+    <!-- ================= SCRIPTS ================= -->
+
+    <!-- menú hamburguesa -->
+    <script src="js/Menu hamburguesa.js"></script>
+
+    <!-- carrito global -->
+    <script src="js/carrito.js"></script>
+
+    <!-- validación del formulario de pago -->
+    <script src="js/pagos.js"></script>
+
+</body>
+</html>

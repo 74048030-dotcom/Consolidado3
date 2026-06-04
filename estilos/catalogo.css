@@ -1,0 +1,65 @@
+
+
+/*---- CONTROLES DE CATÁLOGO ----*/
+/* Barra de filtros (buscador, select, etc.) */
+.controles{
+    display: flex;           /* organiza en fila */
+    gap: 1.5rem;             /* espacio entre controles */
+    margin: 2rem 0;
+    flex-wrap: wrap;         /* permite que bajen en móvil */
+
+    background: white;
+    padding: 1.5rem;
+    border-radius: 20px;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,.08); /* sombra suave */
+}
+
+/* Cada bloque de control */
+.control{
+    flex: 1;         /* ocupa espacio disponible */
+    min-width: 250px; /* evita que se haga muy pequeño */
+
+    display: flex;
+    flex-direction: column; /* label arriba input abajo */
+}
+
+/* Etiqueta de cada input */
+.control label{
+    margin-bottom: .5rem;
+    font-weight: 600;
+    color: var(--verde-principal);
+}
+
+/* Inputs y selects del filtro */
+.control input,
+.control select{
+    padding: 14px 16px;
+
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+
+    font-size: 1rem;
+    outline: none;
+
+    transition: all .3s ease;
+    background: white;
+}
+
+/* Efecto cuando el usuario selecciona el input */
+.control input:focus,
+.control select:focus{
+    border-color: var(--verde-secundario);
+    box-shadow: 0 0 0 4px rgba(76,175,80,.15);
+}
+
+
+/*---- CONTADOR DE RESULTADOS----*/
+/* Texto que muestra cuántos productos hay */
+.conteo-resultados{
+    margin-bottom: 2rem;
+    font-weight: 600;
+    color: #666;
+}
+
+

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos/menu.css">
+    <link rel="stylesheet" href="estilos/general.css">
+    <link rel="stylesheet" href="estilos/carrito.css">
+    <title>Inicio Raiz Verde</title>
+</head>
+<body>
+
+    <header>
+    
+    <nav class="navbar">
+
+        <a class="marca" href="index.html">
+            <img class="marca-logo" src="img/logo.svg" alt="Logo de Raíz Verde">
+            <span class="marca-nombre">Raíz<span>Verde</span></span>
+        </a>
+
+        <div class="acciones-nav">
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalogo.html">Catalogo</a></li>
+            </ul>
+
+
+            <button class="hamburger" id="hamburger" aria-label="Abrir menú">
+                <svg viewBox="0 0 24 24" width="26" height="26" fill="none">
+                    <line class="hb-top" x1="1" y1="6" x2="18" y2="6" />
+                    <line class="hb-middle" x1="1" y1="12" x2="18" y2="12" />
+                    <line class="hb-bottom" x1="1" y1="18" x2="18" y2="18" />
+                </svg>
+            </button>
+            <ul class="nav-carrito">
+                <li>
+                    <a class="carrito-icono activo" href="carrito.html" aria-label="Ver carrito">
+                        <img src="img/carrito.svg" alt="carrito">
+                        <span class="carrito-icono-contador" id="contador-carrito">0</span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+    </nav>
+    </header>
+
+    <main class="seccion contenedor">
+        <h1 class="seccion-titulo">Tu carrito</h1>
+        <p class="seccion-texto">Revisa tus plantas antes de finalizar la compra</p>
+
+        <!-- El contenido del carrito se pinta dinámicamente desde carrito-pagina.js -->
+        <section id="carrito-contenido"></section>
+    </main>
+
+    <!-- PIE -->
+    <footer class="pie">
+        <div class="pie-contenido">
+        <div>
+            <h4>Raíz Verde</h4>
+            <p>Vivero urbano dedicado a acercar la naturaleza a tu hogar. Plantas, macetas y todo lo que necesitas para empezar.</p>
+        </div>
+        <div>
+            <h4>Tienda</h4>
+            <ul>
+            <li><a href="catalogo.html">Catálogo</a></li>
+            <li><a href="carrito.html">Carrito</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Contacto</h4>
+            <ul>
+            <li>Lima, Perú</li>
+            <li>hola@raizverde.pe</li>
+            <li>(01) 555-0123</li>
+            </ul>
+        </div>
+        </div>
+        <p class="pie-copy">© 2026 Raíz Verde · Proyecto académico · Diseño Web NRC 33061</p>
+    </footer>
+
+    <script src="js/Menu hamburguesa.js"></script>
+    <script src="js/productos.js"></script>
+    <script src="js/carrito.js"></script>
+    <script src="js/carrito-pagina.js"></script>
+</body>
+</html>        
