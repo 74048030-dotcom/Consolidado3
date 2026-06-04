@@ -6,7 +6,7 @@
 |---:|---|
 | 1 | **CRISTIAN JOSUE MULLISACA GUZMAN** |
 | 2 | **FRANK ABEL CHAMBI CONDORI** |
-hola
+Buenas tardes
 
 ---
 
