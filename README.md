@@ -6,7 +6,7 @@
 |---:|---|
 | 1 | **CRISTIAN JOSUE MULLISACA GUZMAN** |
 | 2 | **FRANK ABEL CHAMBI CONDORI** |
-buenas 5
+buenas 7
 ---
 
 > **Trabajo grupal correspondiente al Consolidado 3.**
