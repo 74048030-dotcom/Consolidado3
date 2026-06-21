@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap 5.3.8 (CDN) — va ANTES de nuestro CSS para que el nuestro gane la cascada -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="estilos/menu.css">
     <link rel="stylesheet" href="estilos/general.css">
     <link rel="stylesheet" href="estilos/carrito.css">
@@ -10,42 +12,37 @@
 </head>
 <body>
 
+    <!-- NAVBAR S13 artesanal MIGRADA a Bootstrap (hamburguesa CSS comentada en menu.css). -->
     <header>
-    
-    <nav class="navbar">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top shadow-sm">
+        <div class="container">
 
-        <a class="marca" href="index.html">
+          <a class="navbar-brand marca d-flex align-items-center gap-2" href="index.html">
             <img class="marca-logo" src="img/logo.svg" alt="Logo de Raíz Verde">
             <span class="marca-nombre">Raíz<span>Verde</span></span>
-        </a>
+          </a>
 
-        <div class="acciones-nav">
+          <button class="navbar-toggler" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+                  aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="catalogo.html">Catalogo</a></li>
+          <div class="collapse navbar-collapse" id="menuPrincipal">
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+              <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+              <li class="nav-item"><a class="nav-link" href="catalogo.html">Catálogo</a></li>
+              <li class="nav-item">
+                <a class="nav-link carrito-icono active" href="carrito.html" aria-label="Ver carrito">
+                  <img src="img/carrito.svg" alt="carrito">
+                  <span class="carrito-icono-contador" id="contador-carrito">0</span>
+                </a>
+              </li>
             </ul>
-
-
-            <button class="hamburger" id="hamburger" aria-label="Abrir menú">
-                <svg viewBox="0 0 24 24" width="26" height="26" fill="none">
-                    <line class="hb-top" x1="1" y1="6" x2="18" y2="6" />
-                    <line class="hb-middle" x1="1" y1="12" x2="18" y2="12" />
-                    <line class="hb-bottom" x1="1" y1="18" x2="18" y2="18" />
-                </svg>
-            </button>
-            <ul class="nav-carrito">
-                <li>
-                    <a class="carrito-icono activo" href="carrito.html" aria-label="Ver carrito">
-                        <img src="img/carrito.svg" alt="carrito">
-                        <span class="carrito-icono-contador" id="contador-carrito">0</span>
-                    </a>
-                </li>
-            </ul>
+          </div>
 
         </div>
-
-    </nav>
+      </nav>
     </header>
 
     <main class="seccion contenedor">
@@ -82,7 +79,8 @@
         <p class="pie-copy">© 2026 Raíz Verde · Proyecto académico · Diseño Web NRC 33061</p>
     </footer>
 
-    <script src="js/Menu hamburguesa.js"></script>
+    <!-- Bootstrap bundle (incluye Popper): necesario para el collapse del navbar -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/productos.js"></script>
     <script src="js/carrito.js"></script>
     <script src="js/carrito-pagina.js"></script>

@@ -1,13 +1,17 @@
 /*--- PRODUCTOS ---*/
-/* Grid principal donde se muestran todos los productos */
-.grid-productos{
-    display:grid; /* usa grid layout */
-    grid-template-columns:repeat(4, 1fr); 
-    /* 4 columnas iguales en desktop */
+/* ──────────────────────────────────────────────────────────────────────────
+   GRID ARTESANAL S13 — MIGRADO al grid de 12 columnas de Bootstrap (S14).
+   Antes: CSS Grid propio (4 cols desktop, 2 en <=992px, 1 en <=576px).
+   Ahora: <div class="row g-4"> + columnas col-12 col-md-6 col-lg-4 en el HTML/JS.
+   Se comenta para la comparación del veredicto del Paso 6.
 
-    gap:30px; /* espacio entre tarjetas */
+.grid-productos{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:30px;
     margin-top:40px;
 }
+   ────────────────────────────────────────────────────────────────────────── */
 
 /* Tarjeta de producto */
 .tarjeta{
@@ -135,21 +139,11 @@
 }
 
 /*----- RESPONSIVE -----*/
+/* Los breakpoints de columnas (4 / 2 / 1) los maneja ahora el grid de Bootstrap
+   (col-12 col-md-6 col-lg-4). Aquí solo quedan ajustes visuales de la tarjeta. */
 
-/* TABLETS */
-@media(max-width:992px){
-
-    .grid-productos{
-        grid-template-columns:repeat(2,1fr); /* 2 columnas */
-    }
-}
-
-/* CELULARES */
+/* CELULARES: botones de la tarjeta apilados e imagen un poco más baja */
 @media(max-width:576px){
-
-    .grid-productos{
-        grid-template-columns:1fr; /* 1 columna */
-    }
 
     .tarjeta-acciones{
         flex-direction:column; /* botones en vertical */

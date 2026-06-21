@@ -8,6 +8,9 @@
     <!-- Hace la página responsive en móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Bootstrap 5.3.8 (CDN) — va ANTES de nuestro CSS para que el nuestro gane la cascada -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <!-- Archivos CSS del proyecto -->
     <link rel="stylesheet" href="estilos/menu.css">
     <link rel="stylesheet" href="estilos/general.css">
@@ -20,54 +23,37 @@
 <body>
 
     <!-- ================= HEADER / NAVEGACIÓN ================= -->
+    <!-- NAVBAR S13 artesanal MIGRADA a Bootstrap (hamburguesa CSS comentada en menu.css). -->
     <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-success fixed-top shadow-sm">
+            <div class="container">
 
-        <nav class="navbar">
+                <!-- LOGO + NOMBRE DEL SITIO -->
+                <a class="navbar-brand marca d-flex align-items-center gap-2" href="index.html">
+                    <img class="marca-logo" src="img/logo.svg" alt="Logo de Raíz Verde">
+                    <span class="marca-nombre">Raíz<span>Verde</span></span>
+                </a>
 
-            <!-- LOGO + NOMBRE DEL SITIO -->
-            <a class="marca" href="index.html">
-                <img class="marca-logo" src="img/logo.svg" alt="Logo de Raíz Verde">
-
-                <span class="marca-nombre">
-                    Raíz<span>Verde</span>
-                </span>
-            </a>
-
-            <!-- CONTENEDOR DE ACCIONES DEL NAV -->
-            <div class="acciones-nav">
-
-                <!-- MENÚ DE NAVEGACIÓN -->
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="catalogo.html">Catalogo</a></li>
-                </ul>
-
-                <!-- BOTÓN HAMBURGUESA (MÓVIL) -->
-                <button class="hamburger" id="hamburger" aria-label="Abrir menú">
-
-                    <svg viewBox="0 0 24 24" width="26" height="26" fill="none">
-
-                        <!-- líneas del icono hamburguesa -->
-                        <line class="hb-top" x1="1" y1="6" x2="18" y2="6" />
-                        <line class="hb-middle" x1="1" y1="12" x2="18" y2="12" />
-                        <line class="hb-bottom" x1="1" y1="18" x2="18" y2="18" />
-
-                    </svg>
+                <!-- BOTÓN TOGGLER (reemplaza al hamburguesa artesanal) -->
+                <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse" data-bs-target="#menuPrincipal"
+                        aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <!-- ICONO DEL CARRITO -->
-                <ul class="nav-carrito">
-                    <li>
-                        <a class="carrito-icono activo" href="carrito.html" aria-label="Ver carrito">
-
-                            <img src="img/carrito.svg" alt="carrito">
-
-                            <!-- contador dinámico del carrito -->
-                            <span class="carrito-icono-contador" id="contador-carrito">0</span>
-
-                        </a>
-                    </li>
-                </ul>
+                <!-- MENÚ COLAPSABLE -->
+                <div class="collapse navbar-collapse" id="menuPrincipal">
+                    <ul class="navbar-nav ms-auto align-items-lg-center">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="catalogo.html">Catálogo</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link carrito-icono active" href="carrito.html" aria-label="Ver carrito">
+                                <img src="img/carrito.svg" alt="carrito">
+                                <span class="carrito-icono-contador" id="contador-carrito">0</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
 
             </div>
         </nav>
@@ -90,57 +76,63 @@
             <!-- mensajes de error o éxito dinámicos -->
             <div id="aviso"></div>
 
-            <!-- FORMULARIO DE CHECKOUT -->
+            <!-- FORMULARIO DE CHECKOUT — MIGRADO al grid de Bootstrap (row g-3).
+                 Cada campo es una columna; nombre/email/teléfono/dirección/fecha
+                 van lado a lado desde tablet (col-md-6); notas y botón a lo ancho.
+                 Se conservan id/name y los <span class="campo-error"> para que la
+                 validación de js/pagos.js siga funcionando sin cambios. -->
             <!-- novalidate desactiva validación del navegador para usar JS -->
-            <form id="form-checkout" novalidate>
+            <form id="form-checkout" class="row g-3" novalidate>
 
                 <!-- NOMBRE -->
-                <div class="campo">
-                    <label for="nombre">Nombre completo *</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Ej. Ana Pérez">
+                <div class="col-12 col-md-6">
+                    <label for="nombre" class="form-label">Nombre completo *</label>
+                    <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Ej. Ana Pérez">
                     <span class="campo-error"></span>
                 </div>
 
                 <!-- EMAIL -->
-                <div class="campo">
-                    <label for="email">Correo electrónico *</label>
-                    <input type="email" id="email" name="email" placeholder="nombre@correo.com">
+                <div class="col-12 col-md-6">
+                    <label for="email" class="form-label">Correo electrónico *</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="nombre@correo.com">
                     <span class="campo-error"></span>
                 </div>
 
                 <!-- TELÉFONO -->
-                <div class="campo">
-                    <label for="telefono">Teléfono (9 dígitos) *</label>
-                    <input type="tel" id="telefono" name="telefono" placeholder="987654321">
+                <div class="col-12 col-md-6">
+                    <label for="telefono" class="form-label">Teléfono (9 dígitos) *</label>
+                    <input type="tel" id="telefono" name="telefono" class="form-control" placeholder="987654321">
                     <span class="campo-error"></span>
                 </div>
 
                 <!-- DIRECCIÓN -->
-                <div class="campo">
-                    <label for="direccion">Dirección de entrega *</label>
-                    <input type="text" id="direccion" name="direccion" placeholder="Av. Siempre Viva 123, Lima">
+                <div class="col-12 col-md-6">
+                    <label for="direccion" class="form-label">Dirección de entrega *</label>
+                    <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Av. Siempre Viva 123, Lima">
                     <span class="campo-error"></span>
                 </div>
 
                 <!-- FECHA -->
-                <div class="campo">
-                    <label for="fecha">Fecha de entrega deseada *</label>
-                    <input type="date" id="fecha" name="fecha">
+                <div class="col-12 col-md-6">
+                    <label for="fecha" class="form-label">Fecha de entrega deseada *</label>
+                    <input type="date" id="fecha" name="fecha" class="form-control">
                     <span class="campo-error"></span>
                 </div>
 
-                <!-- NOTAS OPCIONALES -->
-                <div class="campo">
-                    <label for="notas">Notas para el repartidor (opcional)</label>
-                    <textarea id="notas" name="notas"
+                <!-- NOTAS OPCIONALES (a lo ancho) -->
+                <div class="col-12">
+                    <label for="notas" class="form-label">Notas para el repartidor (opcional)</label>
+                    <textarea id="notas" name="notas" class="form-control" rows="4"
                         placeholder="Referencias, horario preferido…"></textarea>
                     <span class="campo-error"></span>
                 </div>
 
-                <!-- BOTÓN FINAL -->
-                <button type="submit" class="btn-confirmar">
-                    Confirmar pedido
-                </button>
+                <!-- BOTÓN FINAL (a lo ancho) -->
+                <div class="col-12">
+                    <button type="submit" class="btn-confirmar">
+                        Confirmar pedido
+                    </button>
+                </div>
 
             </form>
         </div>
@@ -190,8 +182,8 @@
 
     <!-- ================= SCRIPTS ================= -->
 
-    <!-- menú hamburguesa -->
-    <script src="js/Menu hamburguesa.js"></script>
+    <!-- Bootstrap bundle (incluye Popper): necesario para el collapse del navbar -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- carrito global -->
     <script src="js/carrito.js"></script>

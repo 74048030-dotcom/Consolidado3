@@ -12,51 +12,50 @@
 }
 
 /*---- CAMPOS ---*/
-/* Cada campo del formulario */
+/* ──────────────────────────────────────────────────────────────────────────
+   ESTRUCTURA DE CAMPO S13 (.campo + estilos de input) — MIGRADA a Bootstrap (S14).
+   Antes: cada campo era un <div class="campo"> en flex-column con input propio.
+   Ahora: columnas del grid (col-12 / col-md-6) con .form-label y .form-control,
+   que aportan el espaciado, el borde y el resplandor azul de foco de Bootstrap.
+   Se conservan abajo (.campo-error, input.error, input.correcto) los estados de
+   validación porque js/pagos.js los sigue usando. Bloque comentado para el veredicto.
+
 .campo{
     display:flex;
-    flex-direction:column; /* label arriba, input abajo */
+    flex-direction:column;
     margin-bottom:1.3rem;
 }
 
-/* Etiqueta del campo */
 .campo label{
     font-weight:600;
     color:var(--verde-principal);
     margin-bottom:.5rem;
 }
 
-/* Inputs y textarea */
 .campo input,
 .campo textarea{
     width:100%;
-
     padding:14px 16px;
-
     border:2px solid #e5e7eb;
     border-radius:12px;
-
     font-size:1rem;
     font-family:inherit;
-
     background:white;
     outline:none;
-
     transition:all .25s ease;
 }
 
-/* Textarea más grande y redimensionable */
 .campo textarea{
     min-height:120px;
     resize:vertical;
 }
 
-/* Efecto cuando el usuario hace focus */
 .campo input:focus,
 .campo textarea:focus{
     border-color:var(--verde-secundario);
     box-shadow:0 0 0 4px rgba(76,175,80,.15);
 }
+   ────────────────────────────────────────────────────────────────────────── */
 
 /*---- MENSAJES DE ERROR ---*/
 /* Texto de error debajo de cada campo */

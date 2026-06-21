@@ -17,40 +17,43 @@ const formatearPrecio = precio =>
 PRODUCTOS.slice(0, 4).forEach(producto => {
 
     // Por cada producto, se agrega una tarjeta al HTML
+    // Cada tarjeta va en su columna de Bootstrap (col-12 / col-md-6 / col-lg-4)
     contenedor.innerHTML += `
-      <article class="tarjeta">
+      <div class="col-12 col-md-6 col-lg-4">
+        <article class="tarjeta">
 
-        <!-- Link a la página de detalle del producto -->
-        <a href="detalle.html?id=${producto.id}">
-          <img class="tarjeta-img" src="${producto.imagen}" alt="${producto.nombre}">
-        </a>
+          <!-- Link a la página de detalle del producto -->
+          <a href="detalle.html?id=${producto.id}">
+            <img class="tarjeta-img img-fluid" src="${producto.imagen}" alt="${producto.nombre}">
+          </a>
 
-        <div class="tarjeta-cuerpo">
+          <div class="tarjeta-cuerpo">
 
-          <!-- Categoría del producto -->
-          <span class="tarjeta-categoria">${producto.categoria}</span>
+            <!-- Categoría del producto -->
+            <span class="tarjeta-categoria">${producto.categoria}</span>
 
-          <!-- Nombre del producto -->
-          <h3 class="tarjeta-nombre">${producto.nombre}</h3>
+            <!-- Nombre del producto -->
+            <h3 class="tarjeta-nombre">${producto.nombre}</h3>
 
-          <!-- Precio formateado -->
-          <span class="tarjeta-precio">${formatearPrecio(producto.precio)}</span>
+            <!-- Precio formateado -->
+            <span class="tarjeta-precio">${formatearPrecio(producto.precio)}</span>
 
-          <div class="tarjeta-acciones">
+            <div class="tarjeta-acciones">
 
-            <!-- Botón para ir a detalle -->
-            <a class="btn-detalle" href="detalle.html?id=${producto.id}">
-              Ver
-            </a>
+              <!-- Botón para ir a detalle -->
+              <a class="btn-detalle" href="detalle.html?id=${producto.id}">
+                Ver
+              </a>
 
-            <!-- Botón para agregar al carrito -->
-            <!-- data-agregar guarda el id del producto -->
-            <button class="btn-agregar" data-agregar="${producto.id}">
-              Agregar
-            </button>
+              <!-- Botón para agregar al carrito -->
+              <!-- data-agregar guarda el id del producto -->
+              <button class="btn-agregar" data-agregar="${producto.id}">
+                Agregar
+              </button>
 
+            </div>
           </div>
-        </div>
-      </article>
+        </article>
+      </div>
     `;
 });

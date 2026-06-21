@@ -29,41 +29,45 @@ const formatearPrecio = precio =>
     }
 
     /* Recorre cada producto y lo pinta en HTML */
+    /* Cada tarjeta va dentro de una COLUMNA del grid de Bootstrap:
+       col-12 (móvil) / col-md-6 (tablet) / col-lg-4 (desktop). */
     lista.forEach(producto => {
       grid.innerHTML += `
-        <article class="tarjeta">
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="tarjeta">
 
-          <!-- Link a detalle del producto -->
-          <a href="detalle.html?id=${producto.id}">
-            <img class="tarjeta-img" src="${producto.imagen}" alt="${producto.nombre}">
-          </a>
+            <!-- Link a detalle del producto -->
+            <a href="detalle.html?id=${producto.id}">
+              <img class="tarjeta-img img-fluid" src="${producto.imagen}" alt="${producto.nombre}">
+            </a>
 
-          <div class="tarjeta-cuerpo">
+            <div class="tarjeta-cuerpo">
 
-            <!-- Categoría -->
-            <span class="tarjeta-categoria">${producto.categoria}</span>
+              <!-- Categoría -->
+              <span class="tarjeta-categoria">${producto.categoria}</span>
 
-            <!-- Nombre -->
-            <h3 class="tarjeta-nombre">${producto.nombre}</h3>
+              <!-- Nombre -->
+              <h3 class="tarjeta-nombre">${producto.nombre}</h3>
 
-            <!-- Precio -->
-            <span class="tarjeta-precio">${formatearPrecio(producto.precio)}</span>
+              <!-- Precio -->
+              <span class="tarjeta-precio">${formatearPrecio(producto.precio)}</span>
 
-            <div class="tarjeta-acciones">
+              <div class="tarjeta-acciones">
 
-              <!-- Ver detalle -->
-              <a class="btn-detalle" href="detalle.html?id=${producto.id}">
-                Ver
-              </a>
+                <!-- Ver detalle -->
+                <a class="btn-detalle" href="detalle.html?id=${producto.id}">
+                  Ver
+                </a>
 
-              <!-- Botón agregar al carrito -->
-              <button class="btn-agregar" data-agregar="${producto.id}">
-                Agregar
-              </button>
+                <!-- Botón agregar al carrito -->
+                <button class="btn-agregar" data-agregar="${producto.id}">
+                  Agregar
+                </button>
 
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
+        </div>
       `;
     });
 
